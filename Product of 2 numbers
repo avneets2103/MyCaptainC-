@@ -1,0 +1,16 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+    cout<<"Enter number 1:"<<endl;
+    float a;
+    cin>>a;
+
+    cout<<"Enter number 2:"<<endl;
+    float b;
+    cin>>b;
+    
+    cout<<"The product of entered numbers is: "<<a*b<<endl;
+
+    return 0;
+}
