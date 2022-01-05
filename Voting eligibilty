@@ -1,0 +1,26 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+    string name;
+    cout<<"What is your name:"<<endl;
+    cin>>name;
+    int age;
+    cout<<"Enter your age "<<name<<endl;
+    cin>>age;
+    if (age >= 18 && age < 21)
+    {
+        cout<<"Ready to chose the PM but nt a life partner xd"<<endl;
+    }
+     
+    else if (age >= 21)
+    {
+        cout<<"Relatives be like"<<endl<<"Ab to shadi ki umr bhi ho gyi hai and vote to kr hi do"<<endl;
+    }
+    
+    else
+    {
+        cout<<"Insta Bio choose hota nhi hai inse, PM choose krenge lol"<<endl;
+    }
+    return 0;
+}
