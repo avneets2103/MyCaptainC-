@@ -1,0 +1,94 @@
+//Write a C++ program to read time in HH:MM:SS format and convert into total seconds using class.
+
+#include<iostream>
+using namespace std;
+
+class time
+{
+    private:
+    int hh;
+    int mm;
+    int ss;
+    public:
+    time(int a, int b, int c)
+    {
+        hh = a;
+        mm = b;
+        ss = c;
+    }
+    void show()
+    {
+        if (hh>=10)
+        {
+            if (mm>=10)
+            {
+                if (ss>=10)
+                {
+                    cout<<hh<<":"<<mm<<":"<<ss<<endl;
+                }
+                else
+                {
+                    cout<<hh<<":"<<mm<<":0"<<ss<<endl;
+                }
+            }
+            else 
+            {
+                if (ss>=10)
+                {
+                    cout<<hh<<":0"<<mm<<":"<<ss<<endl;
+                }
+                else
+                {
+                    cout<<hh<<":0"<<mm<<":0"<<ss<<endl;
+                }
+            }
+        }
+        else
+        {
+            if (mm>=10)
+                {
+                    if (ss>=10)
+                    {
+                    cout<<"0"<<hh<<":"<<mm<<":"<<ss<<endl;
+                    }
+                    else
+                    {
+                    cout<<"0"<<hh<<":"<<mm<<":0"<<ss<<endl;
+                    }
+                    
+                }
+                else
+                {
+                    if (ss>=10)
+                    {
+                    cout<<"0"<<hh<<":0"<<mm<<":"<<ss<<endl;
+                    }
+                    else
+                    {
+                    cout<<"0"<<hh<<":0"<<mm<<":0"<<ss<<endl;
+                    }
+                }
+        }
+
+    }
+    void seconds()
+    {
+        cout<<"Total seconds is: "<<hh*3600+mm*60+ss;
+    }
+};
+
+int main()
+{
+    int a,b,c;
+    cout<<"Enter Hours:"<<endl;
+    cin>>a;
+    cout<<"Enter minutes:"<<endl;
+    cin>>b;
+    cout<<"Enter seconds:"<<endl;
+    cin>>c;
+    time t1(a,b,c);
+    time *ptr1 = &t1;  
+    ptr1->show();
+    ptr1->seconds();
+    return 0;
+}
