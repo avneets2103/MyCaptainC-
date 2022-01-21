@@ -1,0 +1,185 @@
+#include<iostream>
+using namespace std;
+
+int r=0;
+int p=0;
+int k=20;
+
+float TotalSale=0;
+
+class bus
+{
+private:
+char PessengerName[99];
+char dep[9];
+char from[9];
+char to[9];
+char arrive[9];
+int  Total_Seats, Total_Fare;
+int BusNo, Departure_Timing, s;
+
+public:
+void Bus_Registration();
+void show();
+void book();
+void Exit();
+}b[8];
+
+void bus::Bus_Registration()
+{
+cout.setf(ios::right,ios::adjustfield);
+cout.width(15);
+cout<<endl<<"Enter Bus No:";
+cin>>BusNo;
+cout.setf(ios::right,ios::adjustfield);
+cout.width(15);
+cout<<endl<<"From: ";
+cin>>from;
+cout.setf(ios::right,ios::adjustfield);
+cout.width(15);
+cout<<endl<<"To: ";
+cin>>to;
+cout.setf(ios::right,ios::adjustfield);
+cout.width(15);
+cout<<endl<<"Departure: ";
+cin>>Departure_Timing;
+cout.setf(ios::right,ios::adjustfield);
+cout.width(15);
+cout<<endl<<"Total seats: ";
+cin>>Total_Seats;
+p++;
+cout<<endl;
+cout<<"Bus info. added"<<endl;
+system("PAUSE");
+system("CLS");
+}
+
+void bus::show(void)
+{
+cout<<endl<<"Total bus available:"<<endl;
+
+for(int i=0;i<p;i++)
+{	cout.setf(ios::right,ios::adjustfield);
+    cout.width(15);
+    cout<<"Bus No: ";
+    cout<<b[i].BusNo<<endl;
+    cout.setf(ios::right,ios::adjustfield);
+    cout.width(15); 
+    cout<<"From: ";
+    cout<<b[i].from<<endl;
+    cout.setf(ios::right,ios::adjustfield);
+    cout.width(15);
+    cout<<"To: ";
+    cout<<b[i].to<<endl;
+    cout.setf(ios::right,ios::adjustfield);
+    cout.width(15);
+    cout<<"Departure: ";
+    cout<<b[i].Departure_Timing<<" O'clock"<<endl;
+    cout.setf(ios::right,ios::adjustfield);
+    cout.width(15);
+    cout<<"Seats: ";
+    cout<<b[i].Total_Seats<<endl<<endl<<endl;
+}
+system("PAUSE");
+system("CLS");
+}
+
+void bus::book(void)
+{
+int number;
+float Total_Fare;
+cout<<endl<<"Enter Bus No: ";
+cin>>number;
+int n;
+for(n=0;n<p;n++)
+{
+if(b[n].BusNo==number)
+{
+if(b[n].Total_Seats<=0)
+{
+cout<<endl<<"SORRY!"<<endl<<"No  Seat Available";
+}
+else
+{
+cout<<endl<<"Total seat available: "<<b[n].Total_Seats;
+cout<<endl<<"Enter Passenger's Name: ";
+cin>>PessengerName;
+cout<<endl<<"Number of seats: ";
+cin>>s;
+while((b[n].Total_Seats=b[n].Total_Seats-s)<0)
+{
+    cout<<endl<<"Limit Exceed...Please re-enter ";
+    b[n].Total_Seats=b[n].Total_Seats+s;
+    cin>>s;
+}
+
+cout<<endl<<"Your purchase is completed"<<endl;
+cout.setf(ios::right,ios::adjustfield);
+cout.width(30);
+cout<<"Bus No: ";
+cout<<b[n].BusNo<<endl;
+cout.setf(ios::right,ios::adjustfield);
+cout.width(30);
+cout<<"From: ";
+cout<<b[n].from<<" to "<<b[n].to<<endl;
+cout.setf(ios::right,ios::adjustfield);
+cout.width(30);
+cout<<"Departure: ";
+cout<<b[n].Departure_Timing<<" O'clock"<<endl;
+cout.setf(ios::right,ios::adjustfield);
+cout.width(30);
+cout<<"Total seat: ";
+cout<<s<<endl;
+Total_Fare=30*s;
+Total_Fare=Total_Fare+(Total_Fare*.12);
+TotalSale=TotalSale+Total_Fare;
+cout.setf(ios::right,ios::adjustfield);
+cout.width(30);
+cout<<"Total_Fare(with 12 percent tax): ";
+cout.setf(ios::showpoint);
+cout.precision(3);
+cout.setf(ios::fixed,ios::floatfield);
+cout.width(8);
+cout<<Total_Fare<<endl;
+cout.setf(ios::right,ios::adjustfield);
+cout.width(30);
+cout<<"Thank You!!!"<<endl<<endl;
+}
+}
+}
+system("PAUSE");
+system("CLS");
+}
+
+int main()
+{
+int w,a=1;
+while(a)
+{
+cout<<"\t\t\t\tBus Ticketing System\n";
+
+cout<<"Bus_Registration options"<<endl<<"1: Register a bus"<<endl<<"2: List Available Bus"<<endl<<"3: Book Tickets"<<endl<<"4: Exit";
+cout<<endl<<endl<<"Enter your choice: ";
+cin>>w;
+switch(w)
+{
+case 1:
+b[p].Bus_Registration();
+break;
+case 2:
+b[0].show();
+break;
+case 3:
+b[p].book();
+break;
+case 4:
+{
+a=0;
+cout<<endl<<"Total Sales:"<<TotalSale<<endl;
+break;
+}
+}
+}
+return 0;
+}
+
